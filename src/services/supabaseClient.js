@@ -4,6 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.error(
@@ -12,17 +13,14 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-console.log('🔗 Supabase URL:', supabaseUrl ? supabaseUrl.substring(0, 30) + '...' : 'MISSING');
-console.log('🔑 Supabase Key:', supabaseAnonKey ? supabaseAnonKey.substring(0, 20) + '...' : 'MISSING');
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: true,
     storage: window.localStorage,
   },
-});
+}) : null;
 
 export const testSupabaseConnection = async () => {
   try {
