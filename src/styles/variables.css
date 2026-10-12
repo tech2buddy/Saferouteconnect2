@@ -1,0 +1,15 @@
+:root {
+  --primary-500: #22c55e;
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
+  --secondary-500: #64748b;
+  --secondary-900: #0f172a;
+  --danger-500: #ef4444;
+  --warning-500: #f59e0b;
+  --info-500: #3b82f6;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
