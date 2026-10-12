@@ -46,7 +46,7 @@ const VerifyIdentity = () => {
 
     try {
       // Try to sign in — if email is confirmed, this works
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+      const { error: signInError } = await supabase.auth.signInWithPassword({
         email: pending.email,
         password: pending.password || '',
       });

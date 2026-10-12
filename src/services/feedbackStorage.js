@@ -89,7 +89,7 @@ export const getMyFeedback = async () => {
 // Update feedback status (admin/coordinator)
 // ============================================================
 export const updateFeedbackStatus = async (feedbackId, newStatus) => {
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('feedback')
     .update({ status: newStatus })
     .eq('id', feedbackId)

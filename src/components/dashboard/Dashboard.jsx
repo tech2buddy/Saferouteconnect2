@@ -17,19 +17,19 @@ const Dashboard = () => {
   const [statsData, setStatsData] = useState({
     total: 0, newThisWeek: 0, underReview: 0, resolved: 0, reported: 0, actionTaken: 0,
   });
-  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
   const { user } = useAuth();
   const userName = user?.user_metadata?.full_name?.split(' ')[0] || 'User';
 
   useEffect(() => {
     const load = async () => {
-      setLoading(true);
+
       const incidentsData = await getIncidents();
       setIncidents(incidentsData);
       const stats = await getIncidentStats();
       setStatsData(stats);
-      setLoading(false);
+
     };
     load();
   }, []);
